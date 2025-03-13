@@ -1,34 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Issue Tracker
 
-## Getting Started
+Issue Tracker to aplikacja do zarządzania problemami w projektach. Umożliwia przeglądanie, tworzenie i zarządzanie problemami w projekcie.
 
-First, run the development server:
+## Wymagania
 
-```bash
+- Node.js w wersji 14 lub nowszej
+- Baza danych MySQL
+
+## Instalacja
+
+1. Sklonuj repozytorium:
+
+   ```sh
+   git clone https://github.com/vat332/issue-tracker.git
+   cd issue-tracker
+   ```
+
+2. Zainstaluj zależności:
+
+   ```sh
+   npm install
+   ```
+
+3. Skonfiguruj plik `.env` na podstawie `.env.example`:
+
+   ```sh
+   cp .env.example .env
+   ```
+
+4. Uruchom migracje bazy danych:
+   ```sh
+   npx prisma migrate dev
+   ```
+
+## Uruchomienie
+
+Aby uruchomić aplikację w trybie deweloperskim, użyj:
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja będzie dostępna pod adresem `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Budowanie
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Aby zbudować aplikację do produkcji, użyj:
 
-## Learn More
+```sh
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Aby uruchomić zbudowaną aplikację, użyj:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Struktura projektu
 
-## Deploy on Vercel
+- 🛠️ `.env.example` - przykładowy plik konfiguracyjny środowiska
+- 🔄 `middleware.ts` - plik middleware
+- 🔗 `QueryClientProvider.tsx` - komponent dostarczający klienta zapytań
+- 📂 `.next/` - katalog generowany przez Next.js zawierający pliki builda
+- 📁 `app/` - główny katalog aplikacji zawierający komponenty i strony
+  - 📁 `api/` - katalog aplikacji zawierający
+    implementacje endpointow
+    - 📁 `auth/` - katalog zawierający uwierzytelnianie
+    - 📁 `issues/` - endpoint issues
+    - 📁 `users/` - endpoint users
+  - 📁 `auth/` - katalog zawierający uwierzytelnianie
+  - 📁 `components/` - katalog aplikacji zawierający komponenty
+  - 📁 `issues/` - katalog aplikacji zawierający komponenty
+  - 📊 `IssueChart.tsx` - komponent wykresu zgłoszeń
+  - 📋 `IssueSummary.tsx` - komponent podsumowania zgłoszeń
+  - 🆕 `LatestIssues.tsx` - komponent najnowszych zgłoszeń
+  - 🏗️ `layout.tsx` - główny layout aplikacji
+  - 🧭 `NavBar.tsx` - komponent nawigacji
+  - 📄 `page.tsx` - główna strona aplikacji
+  - 🎨 `theme-config.css` - konfiguracja motywu
+  - ✅ `validationSchemas.ts` - schematy walidacji
+- 🗄️ `prisma/` - katalog zawierający schemat bazy danych Prisma
+- 🌍 `public/` - katalog zawierający zasoby publiczne, takie jak obrazy i pliki statyczne
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologie
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js
+- React
+- Prisma
+- Tailwind CSS
+
+## Autorzy
+
+- [vat332](https://github.com/vat332)
+
+## Licencja
+
+Ten projekt jest licencjonowany na warunkach licencji MIT.
+
+.
