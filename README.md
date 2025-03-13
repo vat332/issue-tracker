@@ -89,7 +89,8 @@ npm start
 - React
 - Prisma
 - Tailwind CSS
-
+- Radix UI
+- https://dash.filess.io/
 ## Autorzy
 
 - [vat332](https://github.com/vat332)
@@ -98,4 +99,3 @@ npm start
 
 Ten projekt jest licencjonowany na warunkach licencji MIT.
 
-.
